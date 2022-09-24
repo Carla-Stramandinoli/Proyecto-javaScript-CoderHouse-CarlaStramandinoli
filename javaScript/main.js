@@ -1,8 +1,9 @@
 /*
 Mi idea es hacer un control de stock, en este caso los datos que ingresara el usuario
-son agregados con un "prompt" ya que todavia no fue explicado como obtenerlos de otra manera,
-la idea a futuro es que en las tablas de stock se ingrese lo nuevo, se descuente lo utilizado haciendo
-referencia a las tablas de "estándar" y como resultado se devuelva el stock final.
+son agregados con un "prompt" ya que todavia no fue explicado como obtenerlos de otra manera
+y para cumplir con la pre-entrega, la idea a futuro es que en las tablas de stock se ingrese lo nuevo,
+se descuente lo utilizado haciendoreferencia a las tablas de "estándar"
+y como resultado se devuelva el stock final.
 */
 
 let entra;
@@ -10,7 +11,7 @@ let sale;
 
 function calcularStock(uniProducidas, uniConsumidas) {
     let stock = uniProducidas - uniConsumidas;
-    console.log(`Stock calculado ${stock}`);
+    alert(`Stock calculado ${stock}`);
     return parseInt(stock);
 }
 
@@ -55,13 +56,13 @@ for (let i = 0; i < 6; i++) {
             console.log("No se ingresaron valores");
             break;
     }
-    // entra = parseInt(prompt(`Ingrese la cantidad de produccion a agregar de ${nombre}`));
-    // sale = parseInt(prompt("Ingrese el descuento que se debe hacer segun la cantidad de pax"));
+    entra = parseInt(prompt(`Ingrese la cantidad de produccion a agregar de ${nombre}`));
+    sale = parseInt(prompt("Ingrese el descuento que se debe hacer segun la cantidad de pax"));
 
     console.log(`Valor ingresado ${nombre} ${entra}`);
     console.log(`Valor restado ${nombre} ${sale}`);
 
-   // estaStockBajo(entra, sale);
+   estaStockBajo(entra, sale);
 
 }
 
