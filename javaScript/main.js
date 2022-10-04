@@ -56,8 +56,8 @@ for (let i = 0; i < 6; i++) {
             console.log("No se ingresaron valores");
             break;
     }
-    entra = parseInt(prompt(`Ingrese la cantidad de produccion a agregar de ${nombre}`));
-    sale = parseInt(prompt("Ingrese el descuento que se debe hacer segun la cantidad de pax"));
+    // entra = parseInt(prompt(`Ingrese la cantidad de produccion a agregar de ${nombre}`));
+    // sale = parseInt(prompt("Ingrese el descuento que se debe hacer segun la cantidad de pax"));
 
     console.log(`Valor ingresado ${nombre} ${entra}`);
     console.log(`Valor restado ${nombre} ${sale}`);
@@ -65,6 +65,15 @@ for (let i = 0; i < 6; i++) {
    estaStockBajo(entra, sale);
 
 }
+
+
+let burgerCorderoEntar = document.querySelector("#entra-burger-cordero").value;
+let burgerCorderoSale = document.querySelector("#sale-burger-cordero").value;
+
+estaStockBajo(burgerCorderoEntar, burgerCorderoSale);
+
+// console.log(burgerCorderoEntar);
+// console.log(burgerCorderoSale);
 
 
 
