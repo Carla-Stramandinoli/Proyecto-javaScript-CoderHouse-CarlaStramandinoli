@@ -1,82 +1,48 @@
-/*
-Mi idea es hacer un control de stock, en este caso los datos que ingresara el usuario
-son agregados con un "prompt" ya que todavia no fue explicado como obtenerlos de otra manera
-y para cumplir con la pre-entrega, la idea a futuro es que en las tablas de stock se ingrese lo nuevo,
-se descuente lo utilizado haciendoreferencia a las tablas de "estándar"
-y como resultado se devuelva el stock final.
-*/
-
-let entra;
-let sale;
-
-function calcularStock(uniProducidas, uniConsumidas) {
-    let stock = uniProducidas - uniConsumidas;
-    alert(`Stock calculado ${stock}`);
-    return parseInt(stock);
+function calcularStock(uniProducidas, uniConsumidas, item) {
+    let stockFinal = uniProducidas - uniConsumidas;
+   document.querySelector("#input-stock-" + item ).value = stockFinal;
+    return parseInt(stockFinal);
 }
 
-const estaStockBajo = (entra, sale) => {
-    if (calcularStock(entra, sale) < 200) {
+const listCalentitos = [
+    { name: "Burger cordero", id: 0, date: "", enters: 00, out: 00, stock: 300 },
+    { name: "Pan brioche", id: 1, date: "", enters: 00, out: 00, stock: 00 },
+    { name: "Pan pancho", id: 2, date: "", enters: 00, out: 00, stock: 00 },
+    { name: "Duo de queso", id: 3, date: "", enters: 00, out: 00, stock: 00 },
+    { name: "Caramelo de lomo", id: 4, date: "", enters: 00, out: 00, stock: 00 },
+    { name: "Masa taco", id: 5, date: "", enters: 00, out: 00, stock: 00 }
+]
+
+listCalentitos.forEach(producto => {
+    let tableProducto = document.createElement("tr");
+    tableProducto.className = 'table table-striped table-responsive';
+    tableProducto.innerHTML = `<td id="name" >${producto.name}</td>
+                        <td> <input type="date" id="input-date-${producto.id}" ${producto.date}> </td>
+                        <td> <input type="number" id="input-enters-${producto.id}" placeholder="${producto.enters}"> </td>
+                        <td> <input type="number"id="input-out-${producto.id}" placeholder="${producto.out}"> </td> 
+                        <td> <input readonly=true type="number" id="input-stock-${producto.id}" value="${producto.stock}"> </td>`;
+                        
+    document.querySelector("#table-calentitos").append(tableProducto);
+})
+
+
+const estaStockBajo = (enters, out , i ) => {
+    if (calcularStock(enters, out , i ) < 200) {
         console.log("Debes subir el stock");
-        //la idea es que segun la cantidad de stock, los casilleros se pongan en rojo o verde.
     } else {
         console.log("El stock esta bien");
     }
 }
 
-
 for (let i = 0; i < 6; i++) {
-    let nombre;
-    switch (i) {
-        case 0:
-            nombre = "burger cordero";
-            break;
+    let enters;
+    let out;
 
-        case 1:
-            nombre = "pan brioche";
-            break;
+    enters = document.querySelector("#input-enters-" + i).value;
+    out = document.querySelector("#input-out-" + i ).value;
 
-        case 2:
-            nombre = "pan pancho";
-            break;
-
-        case 3:
-            nombre = "duo de queso";
-            break;
-
-        case 4:
-            nombre = "caramelo";
-            break;
-
-        case 5:
-            nombre = "masa taco";
-            break;
-
-        default:
-            console.log("No se ingresaron valores");
-            break;
-    }
-    // entra = parseInt(prompt(`Ingrese la cantidad de produccion a agregar de ${nombre}`));
-    // sale = parseInt(prompt("Ingrese el descuento que se debe hacer segun la cantidad de pax"));
-
-    console.log(`Valor ingresado ${nombre} ${entra}`);
-    console.log(`Valor restado ${nombre} ${sale}`);
-
-   estaStockBajo(entra, sale);
-
+    estaStockBajo(enters, out , i);
 }
-
-
-let burgerCorderoEntar = document.querySelector("#entra-burger-cordero").value;
-let burgerCorderoSale = document.querySelector("#sale-burger-cordero").value;
-
-estaStockBajo(burgerCorderoEntar, burgerCorderoSale);
-
-// console.log(burgerCorderoEntar);
-// console.log(burgerCorderoSale);
-
-
-
 
 
 
