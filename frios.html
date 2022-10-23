@@ -13,8 +13,8 @@
 <body>
 
     <main class="d-flex flex-nowrap sidemenu">
-        <div class="col-2" >
-            <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="height: 100vh;">
+        <div class="col-2">
+            <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark margin-nav" style="height: 100%;">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 text-white text-decoration-none">
                     <svg class="img-book" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
                         class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
@@ -26,57 +26,66 @@
                     <span class="fs-4">Control de stock</span>
                 </a>
                 <hr>
-                <ul class="nav flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="./index.html" class="nav-link active" aria-current="page">
-                            <svg class="bi pe-none me-2" width="16" height="16">
-                                <use xlink:href="#home" />
-                            </svg>
-                            Estandar
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./frios.html" class="nav-link text-white">
-                            <svg class="bi pe-none me-2" width="16" height="16">
-                                <use xlink:href="#speedometer2" />
-                            </svg>
-                            Frios
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./calentitos.html" class="nav-link text-white">
-                            <svg class="bi pe-none me-2" width="16" height="16">
-                                <use xlink:href="#table" />
-                            </svg>
-                            calentitos
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./islas.html" class="nav-link text-white">
-                            <svg class="bi pe-none me-2" width="16" height="16">
-                                <use xlink:href="#grid" />
-                            </svg>
-                            Islas
-                        </a>
-                    </li>
-                </ul>
-                <hr>
                 <div class="dropdown">
                     <div class="row">
-                        <div class="col-7">
+                        <div class="col-6">
                             <input type="search" class="form-control dropdown-toggle" placeholder="Buscar..."
                                 id="top-search">
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <button class="input-group-text btn btn-primary" type="submit">Buscar</button>
                         </div>
                     </div>
                 </div>
+                <hr>
+                <ul class="list-unstyled">
+                    <li class="mb-1">
+                        <a href="./index.html" class="btn text-white">
+                            Estandar
+                        </a>
+                    </li>
+                    <li class="mb-1">
+                        <button class="btn text-white" data-bs-toggle="collapse" data-bs-target="#home-collapse">
+                            Stock produccion
+                        </button>
+                        <div class="collapse" id="home-collapse">
+                            <ul class=" list-unstyled small">
+                                <li><a href="./frios.html" class="text-decoration-none text-white">Fríos</a></li>
+                                <li><a href="./calentitos.html" class="text-decoration-none text-white">Calentitos</a>
+                                </li>
+                                <li><a href="./islas.html" class="text-decoration-none text-white">Islas</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="mb-1">
+                        <button class="btn text-white" data-bs-toggle="collapse" data-bs-target="#home-collapse">
+                            Pedidos
+                        </button>
+                        <div class="collapse" id="home-collapse">
+                            <ul class=" list-unstyled small">
+                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Verduleria</a></li>
+                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Carnes</a></li>
+                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Almacen</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
 
         <div class="col-10">
             <h2 class="margin-table-title">Stock fríos</h2>
+            <div class="div-btns">
+                <button type="button" class="btn btn-outline-dark btn-lg btn-filter">
+                    Filtrar a los que menos tienen
+                </button>
+                <button type="button" class="btn btn-outline-dark btn-lg btn-priority">
+                    Acomodar por prioridad
+                </button>
+                <button type="button" class="btn btn-outline-dark btn-lg btn-add">
+                    Agregar producto
+                </button>
+            </div>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
@@ -90,98 +99,98 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Roll burrata</td>
+                            <td id="name">Roll burrata</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Biscotti almendras</td>
+                            <td id="name">Biscotti almendras</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Anillos salmon</td>
+                            <td id="name">Anillos salmon</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Roll salmon</td>
+                            <td id="name">Roll salmon</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Queso azul</td>
+                            <td id="name">Queso azul</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Biscotti pasas</td>
+                            <td id="name">Biscotti pasas</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Carpachio</td>
+                            <td id="name">Carpachio</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Focaccia</td>
+                            <td id="name">Focaccia</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Ceviche</td>
+                            <td id="name">Ceviche</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Crocante maiz</td>
+                            <td id="name">Crocante maiz</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Pan a vapor</td>
+                            <td id="name">Pan a vapor</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Salmon marinado</td>
+                            <td id="name">Salmon marinado</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Creme brule</td>
+                            <td id="name">Creme brule</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td>Arroz negro</td>
+                            <td id="name">Arroz negro</td>
                             <td>00/00</td>
                             <td>0</td>
                             <td>0</td>
@@ -190,7 +199,14 @@
                     </tbody>
                 </table>
             </div>
+            <div id="div-btn-stock" class="div-stock">
+                <button type="button" class="btn btn-outline-dark" id="btn-stock">
+                    Calcular stock
+                </button>
+            </div>
         </div>
+    </main>
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

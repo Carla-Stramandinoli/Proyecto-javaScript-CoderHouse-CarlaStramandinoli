@@ -7,14 +7,35 @@ body {
   background-image: url(../imgs/fondo1.jpeg);
 }
 
+.title-add {
+  font-size: 25px;
+}
 h2 {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: rgb(50, 31, 136);
-  margin-top: 1%;
+  text-align: center;
+  font-family: Courier;
+  font-size: 50px;
+  margin-top: 3%;
+  color: #8CBCB9;
+}
+
+h4 {
+  font-family: Courier;
+  color: #8CBCB9;
+  font-size: 30px;
+  text-align: center;
 }
 
 .img-book {
   margin: 0px 5px 0px 0px;
+}
+
+.margin-nav {
+  margin-right: 3%;
+}
+
+table {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
 }
 
 .bd-placeholder-img {
@@ -26,9 +47,35 @@ h2 {
 }
 
 input {
-  width: 115px;
+  width: 150px;
 }
 
+.div-btns {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3%;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.table-responsive{
+  margin-top: 3%;
+}
+
+.input-stock {
+  width: 100px;
+
+}
+
+#name {
+  color: #C5283D;
+}
+
+.div-stock {
+display: flex;
+justify-content: end;
+font-family:'Courier New', Courier, monospace;
+margin-bottom: 1%;
+}
 
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
