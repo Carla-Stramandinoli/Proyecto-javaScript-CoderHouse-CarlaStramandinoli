@@ -7,6 +7,9 @@ body {
   background-image: url(../imgs/fondo1.jpeg);
 }
 
+.title-add {
+  font-size: 25px;
+}
 h2 {
   text-align: center;
   font-family: Courier;
@@ -58,6 +61,10 @@ input {
   margin-top: 3%;
 }
 
+.input-stock {
+  width: 100px;
+
+}
 
 #name {
   color: #C5283D;
@@ -69,10 +76,6 @@ justify-content: end;
 font-family:'Courier New', Courier, monospace;
 margin-bottom: 1%;
 }
-
-
-
-
 
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
