@@ -10,7 +10,7 @@
     <title>stock frios</title>
 </head>
 
-<body>
+<>
 
     <main class="d-flex flex-nowrap sidemenu">
         <div class="col-2">
@@ -79,13 +79,38 @@
                 <button type="button" class="btn btn-outline-dark btn-lg btn-filter">
                     Filtrar a los que menos tienen
                 </button>
-                <button type="button" class="btn btn-outline-dark btn-lg btn-priority">
-                    Acomodar por prioridad
-                </button>
-                <button type="button" class="btn btn-outline-dark btn-lg btn-add">
+                <button type="button" id="btn-add" class="btn btn-outline-dark btn-lg">
                     Agregar producto
                 </button>
             </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <label for="exampleInputEmail1" class="form-label title-add">Producto</label>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="input-name-new" required="required"
+                                        placeholder="Nombre del producto">
+                                    <input type="text" class="form-control" id="input-stock-inicial" required="required"
+                                        placeholder="Stock inicial">
+                                </div>
+                                <button  type="button" class="btn btn-primary"
+                                    data-bs-dismiss="modal">Aceptar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
@@ -97,105 +122,8 @@
                             <th scope="col">Stock</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td id="name">Roll burrata</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Biscotti almendras</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Anillos salmon</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Roll salmon</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Queso azul</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Biscotti pasas</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Carpachio</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Focaccia</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Ceviche</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Crocante maiz</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Pan a vapor</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Salmon marinado</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Creme brule</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Arroz negro</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
+                    <tbody id="table-frios">
+
                     </tbody>
                 </table>
             </div>
@@ -207,6 +135,7 @@
         </div>
     </main>
     <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="./javaScript/frios.js"></script>
+    </body>
 
 </html>

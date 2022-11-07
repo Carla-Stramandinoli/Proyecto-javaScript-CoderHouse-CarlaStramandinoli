@@ -1,0 +1,8 @@
+[
+    { "name": "Burger cordero", "id": 0, "date": "", "enters": "00", "out": "00", "stock": "" },
+    { "name": "Pan brioche", "id": 1, "date": "", "enters": "00", "out": "00", "stock": "240" },
+    { "name": "Pan pancho", "id": 2, "date": "", "enters": "00", "out": "00", "stock": "300" },
+    { "name": "Duo de queso", "id": 3, "date": "", "enters": "00", "out": "00", "stock": "180" },
+    { "name": "Caramelo de lomo", "id": 4, "date": "", "enters": "00", "out": "00", "stock": "290" },
+    { "name": "Masa taco", "id": 5, "date": "", "enters": "00", "out": "00", "stock": "180" }
+]

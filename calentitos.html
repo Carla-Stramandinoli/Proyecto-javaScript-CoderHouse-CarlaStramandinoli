@@ -57,16 +57,10 @@
                         </div>
                     </li>
                     <li class="mb-1">
-                        <button class="btn text-white" data-bs-toggle="collapse" data-bs-target="#home-collapse">
-                            Pedidos
-                        </button>
-                        <div class="collapse" id="home-collapse">
-                            <ul class=" list-unstyled small">
-                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Verduleria</a></li>
-                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Carnes</a></li>
-                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Almacen</a></li>
-                            </ul>
-                        </div>
+                        <div class="container">
+                            <button class="btn text-white" type="button">
+                                Pedidos
+                            </button>
                     </li>
                 </ul>
             </div>
@@ -79,7 +73,7 @@
                 <button type="button" id="btn-filter" class="btn btn-outline-dark btn-lg">
                     Filtrar los que menos tienen
                 </button>
-                <button type="button"  class="btn btn-outline-dark btn-lg" data-bs-toggle="modal"
+                <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal"
                     data-bs-target="#exampleModal">
                     Agregar producto
                 </button>
@@ -90,27 +84,28 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <label for="exampleInputEmail1" class="form-label title-add">Producto</label>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                </button>
                             </div>
                             <div class="modal-body">
                                 <form>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="input-name-new" required="required" placeholder="Nombre del producto">
-                                        <input type="text" class="form-control" id="input-stock-inicial" required="required" placeholder="Stock inicial">
-
+                                        <input type="text" class="form-control" id="input-name-new" required="required"
+                                            placeholder="Nombre del producto">
+                                        <input type="text" class="form-control" id="input-stock-inicial"
+                                            required="required" placeholder="Stock inicial">
                                     </div>
-                                    <button  id="btn-add" type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Cerrar</button>
+                                    <button id="btn-add" type="button" class="btn btn-primary"
+                                        data-bs-dismiss="modal">Aceptar</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar
+                                    </button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="menor-cantidad">
-            </div>
+            <div id="menor-cantidad"></div>
             <div class="table-responsive">
                 <table class="table table-striped table-sm table-position">
                     <thead>
@@ -127,17 +122,57 @@
                 </table>
             </div>
             <div id="div-btn-stock" class="div-stock">
+                <button type="button" class="btn btn-outline-dark div-pedidos" id="btn-add-pedidos"
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    Agregar pedidos
+                </button>
                 <button type="button" class="btn btn-outline-dark" id="btn-stock">
                     Calcular stock
                 </button>
             </div>
+            <div>
+                <div class="offcanvas offcanvas-end" data-bs-backdrop="true" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h5 id="offcanvasRightLabel" class="text-black">Agregar pedidos</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body text-black">
+                        <input type="text" class="form-control" id="input-producto-nuevo" required="required"
+                            placeholder="Producto">
+                        <input type="number" class="form-control" id="input-producto-cant" required="required"
+                            placeholder="Cantidad">
+                        <input type="text" class="form-control" id="input-producto-medida" required="required"
+                            placeholder="Kg/grms/unidad">
+                        <div class="div-aceptar">
+                            <button id="btn-aceptar" type="button" class="btn btn-success">
+                                Aceptar
+                            </button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm table-position">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Producto</th>
+                                        <th scope="col">Cantidad</th>
+                                        <th scope="col">Medida</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="list-prod-pedidos">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </main>
 
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
     <script src="./javaScript/calentitos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    
 </body>
 
 </html>

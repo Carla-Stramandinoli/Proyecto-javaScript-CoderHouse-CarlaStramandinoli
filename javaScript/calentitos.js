@@ -18,25 +18,74 @@ class Calentitos {
     }
 }
 
-let listCalentitos = [
-    { name: "Burger cordero", id: 0, date: "", enters: 00, out: 00, stock: obtenerStockDe(0) },
-    { name: "Pan brioche", id: 1, date: "", enters: 00, out: 00, stock: obtenerStockDe(1) },
-    { name: "Pan pancho", id: 2, date: "", enters: 00, out: 00, stock: obtenerStockDe(2) },
-    { name: "Duo de queso", id: 3, date: "", enters: 00, out: 00, stock: obtenerStockDe(3) },
-    { name: "Caramelo de lomo", id: 4, date: "", enters: 00, out: 00, stock: obtenerStockDe(4) },
-    { name: "Masa taco", id: 5, date: "", enters: 00, out: 00, stock: obtenerStockDe(5) }
-]
+// let listCalentitos = [
+//     { name: "Burger cordero", id: 0, date: obtenerFechaDe(0), enters: 00, out: 00, stock: obtenerStockDe(0) },
+//     { name: "Pan brioche", id: 1, date: obtenerFechaDe(1), enters: 00, out: 00, stock: obtenerStockDe(1) },
+//     { name: "Pan pancho", id: 2, date: obtenerFechaDe(2), enters: 00, out: 00, stock: obtenerStockDe(2) },
+//     { name: "Duo de queso", id: 3, date: obtenerFechaDe(3), enters: 00, out: 00, stock: obtenerStockDe(3) },
+//     { name: "Caramelo de lomo", id: 4, date: obtenerFechaDe(4), enters: 00, out: 00, stock: obtenerStockDe(4) },
+//     { name: "Masa taco", id: 5, date: obtenerFechaDe(5), enters: 00, out: 00, stock: obtenerStockDe(5) }
+// ]
 
-//Creacion de la tabla
+
+let listCalentitos = [];
+
+const obtenerDatos = async () => {
+    let response = await fetch("../archivoDatos.json");
+    let datos = response.json();
+    let info;
+    datos.then(
+        response => {
+            info = response;
+            console.log(info)
+            info.forEach(producto => {
+                crearTrElementos(producto);
+                listCalentitos.push(producto);
+            })
+            listCalentitos.forEach((producto) => {
+                let tablaCreada = crearTrElementos(producto);
+                document.querySelector("#table-calentitos").append(tablaCreada);
+                cambiarColor(producto.stock, producto.id);
+                return tablaCreada;
+            })
+            return datos;
+        })
+}
+
+//Creacion de la tabla y la dibuja en el HTML
 function crearTrElementos(producto) {
     let tableProducto = document.createElement("tr");
     tableProducto.className = 'table table-striped table-responsive';
-    tableProducto.innerHTML = `<td id="name"> ${producto.name} </td>
-                        <td> <input type="date" id="input-date-${producto.id}" ${producto.date}> </td>
-                        <td> <input type="number" class="input-stock" id="input-enters-${producto.id}" placeholder="${producto.enters}"> </td>
-                        <td> <input type="number" class="input-stock" id="input-out-${producto.id}" placeholder="${producto.out}"> </td> 
-                        <td> <input readonly=true type="number" class="input-stock" id="input-stock-${producto.id}" value="${producto.stock}"> </td>`;
+    tableProducto.innerHTML = `<td id = "name" > ${producto.name} </td >
+                                            <td> <input type="date" disabled="true" id="input-date-${producto.id}" value="${actualizarFechas(producto)}"> </td>
+                                            <td> <input type="number" class="enters" data="${producto.id}"id="input-enters-${producto.id}" placeholder="${producto.enters}"> </td>
+                                            <td> <input type="number" class="out" id="input-out-${producto.id}" placeholder="${producto.out}"> </td> 
+                                            <td> <input readonly=true type="number" class="stock" id="input-stock-${producto.id}" value="${producto.stock}"> </td>`;
     return tableProducto;
+}
+obtenerDatos();
+
+//Guardar fecha
+function guardarFechas() {
+    listCalentitos.forEach(producto => {
+        let fechaInput;
+        producto.date = fechaInput;
+        console.log(producto.date);
+        localStorage.setItem("fecha-calentitos" + producto.id, JSON.stringify(producto.date));
+    })
+    return;
+}
+
+//Obtener fecha
+function obtenerFechaDe(id) {
+    let fecha = localStorage.getItem("fecha-calentitos" + id);
+    console.log(fecha)
+    if (fecha == null || fecha == "null") {
+        fecha = 0;
+    } else {
+        fecha = JSON.parse(fecha);
+    }
+    return fecha;
 }
 
 //Obtener el stock guardado
@@ -58,7 +107,6 @@ function getId() {
 //Obtener la lista guardada
 function obtenerListaCalentitos() {
     let localStoragelistaCalen = localStorage.getItem("lista-calen");
-
     if (localStoragelistaCalen == "null" || localStoragelistaCalen == null) {
         localStoragelistaCalen = listCalentitos;
     } else {
@@ -66,31 +114,21 @@ function obtenerListaCalentitos() {
         localStorage.setItem("lista-calen", JSON.stringify(localStoragelistaCalen));
     }
     localStoragelistaCalen.forEach((producto) => {
-        producto.stock = obtenerStockDe(producto.id);
-        console.log(producto.stock)
+        stock = obtenerStockDe(producto.id);
+        //date = obtenerFechaDe(producto.id)
+        //console.log(producto.date);
     })
-
     return localStoragelistaCalen;
 }
 
 //Cambiar de color el stock
 function cambiarColor(stock, id) {
-    if (stock < 200) {
+    if (stock <= 200) {
         document.querySelector("#input-stock-" + id).style.backgroundColor = "red";
     } else {
         document.querySelector("#input-stock-" + id).style.backgroundColor = "green";
     }
 }
-
-//Dibujo los elementos iniciales
-listCalentitos = obtenerListaCalentitos();
-
-listCalentitos.forEach((producto) => {
-    let tablaCreada = crearTrElementos(producto);
-    document.querySelector("#table-calentitos").append(tablaCreada);
-    cambiarColor(producto.stock, producto.id);
-    return tablaCreada;
-})
 
 //Agregar elementos desde la pagina a la tabla
 function addElement() {
@@ -109,12 +147,12 @@ function addElement() {
     localStorage.setItem("lista-calen", JSON.stringify(listCalentitos));
     console.log(listCalentitos);
     actStock();
+    guardarFechas();
     document.querySelector("#table-calentitos").append(
         document.createElement("tr").innerHTML = crearTrElementos(newProducto));
     cambiarColor(_stock, _id);
 
 }
-document.querySelector("#btn-add").addEventListener("click", addElement);
 
 //Actualizar stock
 function actStock() {
@@ -122,7 +160,6 @@ function actStock() {
         localStorage.setItem("stock-calentitos" + producto.id, JSON.stringify(producto.stock));
     })
 }
-actStock();
 
 //Calcular stock
 function calcularStock(uniProducidas, uniConsumidas, idProducto) {
@@ -140,6 +177,7 @@ function calcularStock(uniProducidas, uniConsumidas, idProducto) {
     listCalentitos[idProducto].stock = stock;
     console.log(stock);
     actStock();
+    listCalentitos[idProducto].date = formatDate(new Date);
     return parseInt(stock);
 }
 
@@ -147,18 +185,101 @@ function recorrerCadaProducto() {
     console.log("La funcion se esta ejecutando");
     console.log(listCalentitos.length)
     for (let i = 0; i < listCalentitos.length; i++) {
-        let enters;
-        let out;
-        enters = document.querySelector("#input-enters-" + i).value;
-        out = document.querySelector("#input-out-" + i).value;
+        let enters = document.querySelector("#input-enters-" + i).value;
+        let out = document.querySelector("#input-out-" + i).value;
         let resultado = calcularStock(enters, out, i)
-        cambiarColor(resultado, i);
+        if ((enters > 0 || out < 0) && resultado != 0) {
+           // actualizarFechas(i)
+           listCalentitos[i].date = formatDate(new Date);
+           document.querySelector("#input-date-" + i).value =  listCalentitos[i].date;
+           localStorage.setItem("fecha-calentitos-act" + i, JSON.stringify(listCalentitos[i].date));
+        }
+        cambiarColor(resultado, i); 
     }
 }
+
+//Agregar pedidos
+class PedidoProducto {
+    constructor(namePedido, cantidad, medida) {
+        this.namePedido = namePedido;
+        this.cantidad = cantidad;
+        this.medida = medida;
+    }
+}
+
+function agregarProdPedido() {
+    let newNamePedido = document.querySelector("#input-producto-nuevo").value;
+    let newCantidad = parseInt(document.querySelector("#input-producto-cant").value);
+    let newMedida = document.querySelector("#input-producto-medida").value;
+
+    function crearlist(producto) {
+        let listPedidos = document.createElement("tr");
+        listPedidos.className = 'list-pedidos';
+        listPedidos.innerHTML = `<td id="nameProducto"> ${producto.namePedido} </td> 
+             <td id="cantidad"> ${producto.cantidad} </td>
+             <td id="medida"> ${producto.medida} </td>
+            `;
+        console.log(newCantidad);
+        console.log(newMedida);
+        sessionStorage.setItem("pedidos", JSON.stringify(listPedidos));
+        return listPedidos;
+    }
+
+    let newProdPedido = { namePedido: newNamePedido, cantidad: newCantidad, medida: newMedida };
+    document.querySelector("#list-prod-pedidos").append(
+        document.createElement("h5").innerHTML = crearlist(newProdPedido));
+}
+
+function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+}
+
+function formatDate(date) {
+    return [
+        date.getFullYear(),
+        padTo2Digits(date.getMonth() + 1),
+        padTo2Digits(date.getDate()),
+    ].join('-');
+}
+
+function actualizarFechas(producto) {
+    let fechaInput = localStorage.getItem("fecha-calentitos-act" + producto.id);
+    console.log(producto.date);
+    console.log(fechaInput);
+
+    if ((fechaInput == "null" || fechaInput == null) || fechaInput == undefined) {
+        return producto.date;
+    } else {
+        return JSON.parse(fechaInput);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//CODIGO QUE CORRE LA APLICACION
+document.querySelector("#btn-add").addEventListener("click", addElement);
+
+// //Dibujo los elementos iniciales
+// listCalentitos = obtenerListaCalentitos();
+
+
+actStock();
+
 const btnCalcularStock = document.querySelector("#btn-stock");
 btnCalcularStock.addEventListener("click", recorrerCadaProducto);
 
-//Filtrar los que menos cantidad tiene y mostrarlos.
+
+
+// //Filtrar los que menos cantidad tiene y mostrarlos.
 let btnFilterOn = document.querySelector("#btn-filter");
 btnFilterOn.addEventListener("click", function () {
     let menuDiv = document.querySelector("#menor-cantidad");
@@ -167,7 +288,6 @@ btnFilterOn.addEventListener("click", function () {
         menuDiv.innerHTML = '';
         return
     }
-
     let listaProdMenorCantidad = listCalentitos.filter((producto) => {
         if (parseInt(producto.stock) <= 100) {
             return producto.name;
@@ -185,8 +305,12 @@ btnFilterOn.addEventListener("click", function () {
 })
 
 
+let btnAceptar = document.querySelector("#btn-aceptar");
+btnAceptar.addEventListener("click", agregarProdPedido);
+
 
 
 
 // FUNCIONALIDAD \ EL CODIGO QUE SE NECETIA PARA CORRER la funcionlidad y mostrarle el resultado al usuario
 
+//PROYECTO FINAL AGREGAR LIBRERIAS, FETCH(si o si, agregando un json por fuera) o APIs Y PROMESAS (IDEA PARA AGREGAR PRODUCTOS AL PEDIDO: tipo carrito)

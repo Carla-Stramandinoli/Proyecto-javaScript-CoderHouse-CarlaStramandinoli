@@ -16,14 +16,18 @@ h2 {
   font-family: Courier;
   font-size: 50px;
   margin-top: 3%;
-  color: #8CBCB9;
+  color: #8cbcb9;
 }
 
 h4 {
   font-family: Courier;
-  color: #8CBCB9;
+  color: #8cbcb9;
   font-size: 30px;
   text-align: center;
+}
+
+h5 {
+  font-family: "Courier New", Courier, monospace;
 }
 
 .img-book {
@@ -35,7 +39,7 @@ h4 {
 }
 
 table {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 20px;
 }
 
@@ -46,6 +50,11 @@ table {
   -moz-user-select: none;
   -ms-user-select: none;
       user-select: none;
+}
+
+.open {
+  font-family: "Courier New", Courier, monospace;
+  margin-top: 2%;
 }
 
 input {
@@ -59,29 +68,48 @@ input {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   margin-top: 3%;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .table-responsive {
   margin-top: 3%;
 }
 
-.input-stock {
+.enters,
+.out,
+.stock {
   width: 100px;
 }
 
 #name {
-  color: #C5283D;
+  color: #c5283d;
 }
 
-.div-stock {
+#input-producto-nuevo,
+#input-producto-cant,
+#input-producto-medida {
+  font-family: "Courier New", Courier, monospace;
+  margin-top: 2%;
+}
+
+.div-aceptar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
-  font-family: 'Courier New', Courier, monospace;
+  margin-top: 2%;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.div-stock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-family: "Courier New", Courier, monospace;
   margin-bottom: 1%;
 }
 
