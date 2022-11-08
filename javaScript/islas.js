@@ -1,10 +1,10 @@
-let listCalentitos = obtenerDatos("../JSON/frios.json", "frios");
+let listCalentitos = obtenerDatos("../JSON/islas.json", "islas");
 
 obtenerDatos();
 
 document.querySelector("#btn-add").addEventListener("click", addElement);
 
-actStock("frios");
+actStock("islas");
 
 const btnCalcularStock = document.querySelector("#btn-stock");
 btnCalcularStock.addEventListener("click", recorrerCadaProducto);

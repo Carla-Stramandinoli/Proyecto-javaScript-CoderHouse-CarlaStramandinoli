@@ -13,7 +13,7 @@
 <body>
     <main class="d-flex flex-nowrap sidemenu">
         <div class="col-2">
-            <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark margin-nav" style="height: 100vh;">
+            <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark margin-nav" style="height: 100%;">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 text-white text-decoration-none">
                     <svg class="img-book" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
                         class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
@@ -57,34 +57,55 @@
                         </div>
                     </li>
                     <li class="mb-1">
-                        <button class="btn text-white" data-bs-toggle="collapse" data-bs-target="#home-collapse">
-                            Pedidos
-                        </button>
-                        <div class="collapse" id="home-collapse">
-                            <ul class=" list-unstyled small">
-                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Verduleria</a></li>
-                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Carnes</a></li>
-                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Almacen</a></li>
-                            </ul>
-                        </div>
+                        <div class="container">
+                            <button class="btn text-white" type="button">
+                                Pedidos
+                            </button>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div class="col-10">
-            <h2 class="margin-table-title">Stock islas</h2>
+            <h2 class="margin-table-title">Stock fríos</h2>
             <div class="div-btns">
-                <button type="button" class="btn btn-outline-dark btn-lg btn-filter">
-                    Filtrar a los que menos tienen
+                <button type="button" id="btn-filter" class="btn btn-outline-dark btn-lg">
+                    Filtrar los que menos tienen
                 </button>
-                <button type="button" class="btn btn-outline-dark btn-lg btn-priority">
-                    Acomodar por prioridad
-                </button>
-                <button type="button" class="btn btn-outline-dark btn-lg btn-add">
+                <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
                     Agregar producto
                 </button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <label for="exampleInputEmail1" class="form-label title-add">Producto</label>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" id="input-name-new" required="required"
+                                            placeholder="Nombre del producto">
+                                        <input type="text" class="form-control" id="input-stock-inicial"
+                                            required="required" placeholder="Stock inicial">
+                                    </div>
+                                    <button id="btn-add" type="button" class="btn btn-primary"
+                                        data-bs-dismiss="modal">Aceptar</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div id="menor-cantidad"></div>
+
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
@@ -96,81 +117,61 @@
                             <th scope="col">Stock</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td id="name">Burger</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Pan brioche</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Pan chori</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Meat ball</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Chicken tender</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Emp. pollo</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Emp. carne</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Chipa</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td id="name">Bagel</td>
-                            <td>00/00</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
+                    <tbody id="table">
                     </tbody>
+
                 </table>
             </div>
             <div id="div-btn-stock" class="div-stock">
+                <button type="button" class="btn btn-outline-dark div-pedidos" id="btn-add-pedidos"
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    Agregar pedidos
+                </button>
                 <button type="button" class="btn btn-outline-dark" id="btn-stock">
                     Calcular stock
                 </button>
             </div>
-        </div>
+            <div>
+                <div class="offcanvas offcanvas-end" data-bs-backdrop="true" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h5 id="offcanvasRightLabel" class="text-black">Agregar pedidos</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body text-black">
+                        <input type="text" class="form-control" id="input-producto-nuevo" required="required"
+                            placeholder="Producto">
+                        <input type="number" class="form-control" id="input-producto-cant" required="required"
+                            placeholder="Cantidad">
+                        <input type="text" class="form-control" id="input-producto-medida" required="required"
+                            placeholder="Kg/grms/unidad">
+                        <div class="div-aceptar">
+                            <button id="btn-aceptar" type="button" class="btn btn-success">
+                                Aceptar
+                            </button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm table-position">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Producto</th>
+                                        <th scope="col">Cantidad</th>
+                                        <th scope="col">Medida</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="list-prod-pedidos">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
+    <script src="./javaScript/productos.js"></script>
+    <script src="./javaScript/islas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

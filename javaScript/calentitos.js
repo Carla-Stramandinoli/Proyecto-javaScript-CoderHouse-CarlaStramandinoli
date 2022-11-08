@@ -257,32 +257,32 @@ btnCalcularStock.addEventListener("click", recorrerCadaProducto);
 
 
 
-// //Filtrar los que menos cantidad tiene y mostrarlos.
-let btnFilterOn = document.querySelector("#btn-filter");
-btnFilterOn.addEventListener("click", function () {
-    let menuDiv = document.querySelector("#menor-cantidad");
-    if (menuDiv.className == "open") {
-        menuDiv.className = "";
-        menuDiv.innerHTML = '';
-        return
-    }
-    let listaProdMenorCantidad = listCalentitos.filter((producto) => {
-        if (parseInt(producto.stock) <= 100) {
-            return producto.name;
-        }
-    })
-    menuDiv.className = "open";
-    console.log(listaProdMenorCantidad);
-    for (let i = 0; i < listaProdMenorCantidad.length; i++) {
-        let producto = listaProdMenorCantidad[i];
-        let h5Producto = document.createElement("h5");
-        h5Producto.innerHTML = `Los productos con menor stock son: ${producto.name}`;
-        menuDiv.append(h5Producto);
-        console.log(h5Producto);
-    }
-})
+//Filtrar los que menos cantidad tiene y mostrarlos.
+// let btnFilterOn = document.querySelector("#btn-filter");
+// btnFilterOn.addEventListener("click", function () {
+//     let menuDiv = document.querySelector("#menor-cantidad");
+//     if (menuDiv.className == "open") {
+//         menuDiv.className = "";
+//         menuDiv.innerHTML = '';
+//         return
+//     }
+//     let listaProdMenorCantidad = listCalentitos.filter((producto) => {
+//         if (parseInt(producto.stock) <= 100) {
+//             return producto.name;
+//         }
+//     })
+//     menuDiv.className = "open";
+//     console.log(listaProdMenorCantidad);
+//     for (let i = 0; i < listaProdMenorCantidad.length; i++) {
+//         let producto = listaProdMenorCantidad[i];
+//         let h5Producto = document.createElement("h5");
+//         h5Producto.innerHTML = `Los productos con menor stock son: ${producto.name}`;
+//         menuDiv.append(h5Producto);
+//         console.log(h5Producto);
+//     }
+// })
 
 
-let btnAceptar = document.querySelector("#btn-aceptar");
-btnAceptar.addEventListener("click", agregarProdPedido);
+// let btnAceptar = document.querySelector("#btn-aceptar");
+// btnAceptar.addEventListener("click", agregarProdPedido);
 

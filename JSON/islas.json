@@ -1,0 +1,11 @@
+[
+    { "name": "Burger lomo", "id": 0, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Pan brioche", "id": 1, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Pan chori", "id": 2, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Meat ball", "id": 3, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Chicken tender", "id": 4, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Emp. pollo", "id": 5, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Emp. carne", "id": 6, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Chipa", "id": 7, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Bagel", "id": 8, "date": "", "enters": 0, "out": 0, "stock": 0 }
+]
