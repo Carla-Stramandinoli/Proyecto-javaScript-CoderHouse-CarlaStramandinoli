@@ -31,7 +31,7 @@ class Calentitos {
 let listCalentitos = [];
 
 const obtenerDatos = async () => {
-    let response = await fetch("../archivoDatos.json");
+    let response = await fetch("../calentitos.json");
     let datos = response.json();
     let info;
     datos.then(
@@ -44,7 +44,8 @@ const obtenerDatos = async () => {
             })
             listCalentitos.forEach((producto) => {
                 let tablaCreada = crearTrElementos(producto);
-                document.querySelector("#table-calentitos").append(tablaCreada);
+                document.querySelector("#table").append(tablaCreada);
+                producto.stock = obtenerStockDe(producto.id);
                 cambiarColor(producto.stock, producto.id);
                 return tablaCreada;
             })
@@ -60,37 +61,15 @@ function crearTrElementos(producto) {
                                             <td> <input type="date" disabled="true" id="input-date-${producto.id}" value="${actualizarFechas(producto)}"> </td>
                                             <td> <input type="number" class="enters" data="${producto.id}"id="input-enters-${producto.id}" placeholder="${producto.enters}"> </td>
                                             <td> <input type="number" class="out" id="input-out-${producto.id}" placeholder="${producto.out}"> </td> 
-                                            <td> <input readonly=true type="number" class="stock" id="input-stock-${producto.id}" value="${producto.stock}"> </td>`;
+                                            <td> <input readonly=true type="number" class="stock" id="input-stock-${producto.id}" value="${obtenerStockDe(producto.id)}"> </td>`;
     return tableProducto;
 }
 obtenerDatos();
 
-//Guardar fecha
-function guardarFechas() {
-    listCalentitos.forEach(producto => {
-        let fechaInput;
-        producto.date = fechaInput;
-        console.log(producto.date);
-        localStorage.setItem("fecha-calentitos" + producto.id, JSON.stringify(producto.date));
-    })
-    return;
-}
-
-//Obtener fecha
-function obtenerFechaDe(id) {
-    let fecha = localStorage.getItem("fecha-calentitos" + id);
-    console.log(fecha)
-    if (fecha == null || fecha == "null") {
-        fecha = 0;
-    } else {
-        fecha = JSON.parse(fecha);
-    }
-    return fecha;
-}
-
 //Obtener el stock guardado
 function obtenerStockDe(id) {
     let valor = localStorage.getItem("stock-calentitos" + id);
+    console.log(valor);
     if (valor == "null" || valor == null) {
         valor = 0;
     } else {
@@ -147,7 +126,6 @@ function addElement() {
     localStorage.setItem("lista-calen", JSON.stringify(listCalentitos));
     console.log(listCalentitos);
     actStock();
-    guardarFechas();
     document.querySelector("#table-calentitos").append(
         document.createElement("tr").innerHTML = crearTrElementos(newProducto));
     cambiarColor(_stock, _id);
@@ -165,7 +143,7 @@ function actStock() {
 function calcularStock(uniProducidas, uniConsumidas, idProducto) {
     let stockFinal = parseInt(uniProducidas - uniConsumidas);
     let stock = localStorage.getItem("stock-calentitos" + idProducto);
-
+    console.log(stock);
     if (stock == "null" || stock == null) {
         stock = 0;
     } else {
@@ -308,9 +286,3 @@ btnFilterOn.addEventListener("click", function () {
 let btnAceptar = document.querySelector("#btn-aceptar");
 btnAceptar.addEventListener("click", agregarProdPedido);
 
-
-
-
-// FUNCIONALIDAD \ EL CODIGO QUE SE NECETIA PARA CORRER la funcionlidad y mostrarle el resultado al usuario
-
-//PROYECTO FINAL AGREGAR LIBRERIAS, FETCH(si o si, agregando un json por fuera) o APIs Y PROMESAS (IDEA PARA AGREGAR PRODUCTOS AL PEDIDO: tipo carrito)

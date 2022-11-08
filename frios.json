@@ -1,0 +1,16 @@
+[
+    { "name": "Roll burrata", "id": 0, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Biscottif almendras", "id": 1, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Anillos salmfon", "id": 2, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Roll salmon", "id": 3, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Queso azul", "id": 4, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Biscotti pasas", "id": 5, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Carpacchio", "id": 6, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Focaccia", "id": 7, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Ceviche", "id": 8, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Crocante maiz", "id": 9, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Salmon marinado", "id": 10, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Pan a vapor", "id": 11, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Creme brule", "id": 12, "date": "", "enters": 0, "out": 0, "stock": 0 },
+    { "name": "Arroz negro", "id": 13, "date": "", "enters": 0, "out": 0, "stock": 0 }
+]
