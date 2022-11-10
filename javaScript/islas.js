@@ -1,6 +1,6 @@
-let sectorActual = "calentitos";
+let sectorActual = "islas";
 
-let listCalentitos = obtenerDatos("../JSON/calentitos.json", sectorActual);
+let listIslas = obtenerDatos("../JSON/islas.json", sectorActual);
 
 document.querySelector("#btn-add").addEventListener("click", addElement);
 
@@ -11,3 +11,7 @@ btnCalcularStock.addEventListener("click", recorrerCadaProducto);
 
 let btnAceptar = document.querySelector("#btn-aceptar");
 btnAceptar.addEventListener("click", agregarProdPedido);
+
+
+
+

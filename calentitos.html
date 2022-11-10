@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
     <title>stock calentitos</title>
@@ -25,26 +26,374 @@
                     <span class="fs-4">Control de stock</span>
                 </a>
                 <hr>
-                <div class="dropdown">
-                    <div class="row">
-                        <div class="col-6">
-                            <input type="search" class="form-control dropdown-toggle" placeholder="Buscar..."
-                                id="top-search">
-                        </div>
-                        <div class="col-2">
-                            <button class="input-group-text btn btn-primary" type="submit">Buscar</button>
-                        </div>
-                    </div>
-                </div>
-                <hr>
                 <ul class="list-unstyled">
-                    <li class="mb-1">
-                        <a href="./index.html" class="btn text-white">
-                            Estandar
-                        </a>
+                    <li>
+                        <button type="button" class="btn btn-secondary text-white" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            Ver estándar
+                        </button>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body font-size">
+                                        <div class="container-fluid">
+
+                                            <h2 class="margin-table-title">Estándar fríos</h2>
+                                            <div class="table-responsive margin-table-title">
+                                                <table class="table table-striped table-sm ">
+                                                    <thead class="font-size">
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">50 pax</th>
+                                                            <th scope="col">100 pax</th>
+                                                            <th scope="col">150 pax</th>
+                                                            <th scope="col">200 pax</th>
+                                                            <th scope="col">250 pax</th>
+                                                            <th scope="col">300 pax</th>
+                                                            <th scope="col">350 pax</th>
+                                                            <th scope="col">400 pax</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="font-size">
+                                                        <tr>
+                                                            <td id="name">Roll burrata</td>
+                                                            <td>35</td>
+                                                            <td>65</td>
+                                                            <td>110</td>
+                                                            <td>150</td>
+                                                            <td>185</td>
+                                                            <td>210</td>
+                                                            <td>250</td>
+                                                            <td>275</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Roll salmon</td>
+                                                            <td>30</td>
+                                                            <td>50</td>
+                                                            <td>90</td>
+                                                            <td>130</td>
+                                                            <td>160</td>
+                                                            <td>190</td>
+                                                            <td>230</td>
+                                                            <td>250</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Queso azul</td>
+                                                            <td>35</td>
+                                                            <td>65</td>
+                                                            <td>110</td>
+                                                            <td>150</td>
+                                                            <td>185</td>
+                                                            <td>210</td>
+                                                            <td>250</td>
+                                                            <td>275</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Carpachio</td>
+                                                            <td>35</td>
+                                                            <td>65</td>
+                                                            <td>110</td>
+                                                            <td>150</td>
+                                                            <td>185</td>
+                                                            <td>210</td>
+                                                            <td>250</td>
+                                                            <td>275</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Ceviche</td>
+                                                            <td>30</td>
+                                                            <td>50</td>
+                                                            <td>90</td>
+                                                            <td>130</td>
+                                                            <td>160</td>
+                                                            <td>190</td>
+                                                            <td>230</td>
+                                                            <td>250</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Pan a vapor</td>
+                                                            <td>30</td>
+                                                            <td>50</td>
+                                                            <td>90</td>
+                                                            <td>130</td>
+                                                            <td>160</td>
+                                                            <td>190</td>
+                                                            <td>230</td>
+                                                            <td>250</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Creme brule</td>
+                                                            <td>25</td>
+                                                            <td>45</td>
+                                                            <td>80</td>
+                                                            <td>120</td>
+                                                            <td>150</td>
+                                                            <td>180</td>
+                                                            <td>220</td>
+                                                            <td>240</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <h2 class="margin-table-title">Estándar calentitos</h2>
+                                            <div class="table-responsive margin-table-title">
+                                                <table class="table table-striped table-sm">
+                                                    <thead class="font-size">
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">50 pax</th>
+                                                            <th scope="col">100 pax</th>
+                                                            <th scope="col">150 pax</th>
+                                                            <th scope="col">200 pax</th>
+                                                            <th scope="col">250 pax</th>
+                                                            <th scope="col">300 pax</th>
+                                                            <th scope="col">350 pax</th>
+                                                            <th scope="col">400 pax</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="font-size">
+                                                        <tr>
+                                                            <td id="name">Burger cordero</td>
+                                                            <td>30</td>
+                                                            <td>50</td>
+                                                            <td>90</td>
+                                                            <td>130</td>
+                                                            <td>160</td>
+                                                            <td>190</td>
+                                                            <td>230</td>
+                                                            <td>250</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Mini pancho</td>
+                                                            <td>30</td>
+                                                            <td>50</td>
+                                                            <td>90</td>
+                                                            <td>130</td>
+                                                            <td>160</td>
+                                                            <td>190</td>
+                                                            <td>230</td>
+                                                            <td>250</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Duo de queso</td>
+                                                            <td>35</td>
+                                                            <td>65</td>
+                                                            <td>110</td>
+                                                            <td>150</td>
+                                                            <td>185</td>
+                                                            <td>210</td>
+                                                            <td>250</td>
+                                                            <td>275</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Caramelo</td>
+                                                            <td>35</td>
+                                                            <td>65</td>
+                                                            <td>110</td>
+                                                            <td>150</td>
+                                                            <td>185</td>
+                                                            <td>210</td>
+                                                            <td>250</td>
+                                                            <td>275</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Taco</td>
+                                                            <td>30</td>
+                                                            <td>50</td>
+                                                            <td>90</td>
+                                                            <td>130</td>
+                                                            <td>160</td>
+                                                            <td>190</td>
+                                                            <td>230</td>
+                                                            <td>250</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Moqueca</td>
+                                                            <td>30</td>
+                                                            <td>50</td>
+                                                            <td>90</td>
+                                                            <td>130</td>
+                                                            <td>160</td>
+                                                            <td>190</td>
+                                                            <td>230</td>
+                                                            <td>250</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Sopa</td>
+                                                            <td>25</td>
+                                                            <td>45</td>
+                                                            <td>80</td>
+                                                            <td>120</td>
+                                                            <td>150</td>
+                                                            <td>180</td>
+                                                            <td>220</td>
+                                                            <td>240</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Langostinos</td>
+                                                            <td>40</td>
+                                                            <td>70</td>
+                                                            <td>130</td>
+                                                            <td>160</td>
+                                                            <td>200</td>
+                                                            <td>230</td>
+                                                            <td>260</td>
+                                                            <td>300</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <h2 class="margin-table-title">Estándar islas</h2>
+                                            <h4 class="margin-table-title">Americana</h4>
+                                            <div class="table-responsive margin-table-title">
+                                                <table class="table table-striped table-sm">
+                                                    <thead class="font-size">
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">50 pax</th>
+                                                            <th scope="col">100 pax</th>
+                                                            <th scope="col">150 pax</th>
+                                                            <th scope="col">200 pax</th>
+                                                            <th scope="col">250 pax</th>
+                                                            <th scope="col">300 pax</th>
+                                                            <th scope="col">350 pax</th>
+                                                            <th scope="col">400 pax</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="font-size">
+                                                        <tr>
+                                                            <td id="name">Burger</td>
+                                                            <td>40</td>
+                                                            <td>75</td>
+                                                            <td>113</td>
+                                                            <td>150</td>
+                                                            <td>188</td>
+                                                            <td>225</td>
+                                                            <td>263</td>
+                                                            <td>300</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Bagel</td>
+                                                            <td>18</td>
+                                                            <td>36</td>
+                                                            <td>54</td>
+                                                            <td>72</td>
+                                                            <td>90</td>
+                                                            <td>108</td>
+                                                            <td>126</td>
+                                                            <td>144</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Chicken</td>
+                                                            <td>30</td>
+                                                            <td>60</td>
+                                                            <td>90</td>
+                                                            <td>120</td>
+                                                            <td>150</td>
+                                                            <td>180</td>
+                                                            <td>210</td>
+                                                            <td>240</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Meat ball</td>
+                                                            <td>30</td>
+                                                            <td>60</td>
+                                                            <td>90</td>
+                                                            <td>120</td>
+                                                            <td>150</td>
+                                                            <td>180</td>
+                                                            <td>210</td>
+                                                            <td>240</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <h4 class="margin-table-title">Lo nuestro</h4>
+                                            <div class="table-responsive margin-table-title">
+                                                <table class="table table-striped table-sm">
+                                                    <thead class="font-size">
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">50 pax</th>
+                                                            <th scope="col">100 pax</th>
+                                                            <th scope="col">150 pax</th>
+                                                            <th scope="col">200 pax</th>
+                                                            <th scope="col">250 pax</th>
+                                                            <th scope="col">300 pax</th>
+                                                            <th scope="col">350 pax</th>
+                                                            <th scope="col">400 pax</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="font-size">
+                                                        <tr>
+                                                            <td id="name">Mini choripan</td>
+                                                            <td>30</td>
+                                                            <td>66</td>
+                                                            <td>100</td>
+                                                            <td>132</td>
+                                                            <td>166</td>
+                                                            <td>198</td>
+                                                            <td>232</td>
+                                                            <td>264</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Chipa</td>
+                                                            <td>30</td>
+                                                            <td>60</td>
+                                                            <td>90</td>
+                                                            <td>120</td>
+                                                            <td>150</td>
+                                                            <td>180</td>
+                                                            <td>210</td>
+                                                            <td>240</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Emp. carne</td>
+                                                            <td>35</td>
+                                                            <td>88</td>
+                                                            <td>132</td>
+                                                            <td>176</td>
+                                                            <td>220</td>
+                                                            <td>264</td>
+                                                            <td>308</td>
+                                                            <td>352</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td id="name">Emp. pollo</td>
+                                                            <td>35</td>
+                                                            <td>52</td>
+                                                            <td>78</td>
+                                                            <td>104</td>
+                                                            <td>130</td>
+                                                            <td>156</td>
+                                                            <td>182</td>
+                                                            <td>208</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </li>
                     <li class="mb-1">
-                        <button class="btn text-white" data-bs-toggle="collapse" data-bs-target="#home-collapse">
+                        <button class="btn btn-secondary text-white" data-bs-toggle="collapse" data-bs-target="#home-collapse">
                             Stock produccion
                         </button>
                         <div class="collapse" id="home-collapse">
@@ -57,15 +406,12 @@
                         </div>
                     </li>
                     <li class="mb-1">
-                        <button class="btn text-white" data-bs-toggle="collapse" data-bs-target="#home-collapse">
-                            Pedidos
-                        </button>
-                        <div class="collapse" id="home-collapse">
-                            <ul class=" list-unstyled small">
-                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Verduleria</a></li>
-                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Carnes</a></li>
-                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Almacen</a></li>
-                            </ul>
+                        <div class="">
+                            <a href="./pedidos.html"><button type="button"
+                                    class="btn btn-secondary div-pedidos text-white" data-bs-toggle="offcanvas">
+                                    Agregar pedidos
+                                </button>
+                            </a>
                         </div>
                     </li>
                 </ul>
@@ -79,7 +425,7 @@
                 <button type="button" id="btn-filter" class="btn btn-outline-dark btn-lg">
                     Filtrar los que menos tienen
                 </button>
-                <button type="button"  class="btn btn-outline-dark btn-lg" data-bs-toggle="modal"
+                <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal"
                     data-bs-target="#exampleModal">
                     Agregar producto
                 </button>
@@ -90,51 +436,61 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <label for="exampleInputEmail1" class="form-label title-add">Producto</label>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                </button>
                             </div>
                             <div class="modal-body">
                                 <form>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="input-name-new" required="required" placeholder="Nombre del producto">
-                                        <input type="text" class="form-control" id="input-stock-inicial" required="required" placeholder="Stock inicial">
-
+                                        <input type="text" class="form-control" id="input-name-new" required
+                                            placeholder="Nombre del producto">
+                                        <input type="text" class="form-control" id="input-stock-inicial" required
+                                            placeholder="Stock inicial">
                                     </div>
-                                    <button  id="btn-add" type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Cerrar</button>
+                                    <button id="btn-add" type="button" class="btn btn-primary"
+                                        data-bs-dismiss="modal">Aceptar</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar
+                                    </button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="menor-cantidad">
-            </div>
-            <div class="table-responsive">
-                <table class="table table-striped table-sm table-position">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Fecha</th>
-                            <th scope="col">Entra</th>
-                            <th scope="col">Sale</th>
-                            <th scope="col">Stock</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-calentitos">
-                    </tbody>
-                </table>
-            </div>
-            <div id="div-btn-stock" class="div-stock">
-                <button type="button" class="btn btn-outline-dark" id="btn-stock">
-                    Calcular stock
-                </button>
+            <div id="menor-cantidad"></div>
+            <div data-aos="fade-up" data-aos-duration="3000">
+                <div id="tooltip" role="tooltip">Stock producido</div>
+                <div id="tooltip-out" role="tooltip">Stock consumido</div>
+                <div id="tooltip-date" role="tooltip">Fecha de la ultima modificacion</div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm table-position">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Entra</th>
+                                <th scope="col">Sale</th>
+                                <th scope="col">Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table">
+                        </tbody>
+                    </table>
+                </div>
+                <div id="div-btn-stock" class="div-stock">
+                    <button type="button" class="btn btn-outline-dark" id="btn-stock">
+                        Calcular stock
+                    </button>
+                </div>
             </div>
         </div>
-
     </main>
-
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="./javaScript/productos.js"></script>
     <script src="./javaScript/calentitos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 

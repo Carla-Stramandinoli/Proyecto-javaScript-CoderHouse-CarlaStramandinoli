@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
-    <title>stock frios</title>
+    <title>Pedidos</title>
 </head>
 
 <body>
@@ -25,18 +26,6 @@
                     </svg>
                     <span class="fs-4">Control de stock</span>
                 </a>
-                <hr>
-                <div class="dropdown">
-                    <div class="row">
-                        <div class="col-6">
-                            <input type="search" class="form-control dropdown-toggle" placeholder="Buscar..."
-                                id="top-search">
-                        </div>
-                        <div class="col-2">
-                            <button class="input-group-text btn btn-primary" type="submit">Buscar</button>
-                        </div>
-                    </div>
-                </div>
                 <hr>
                 <ul class="list-unstyled">
                     <li class="mb-1">
@@ -58,21 +47,62 @@
                         </div>
                     </li>
                     <li class="mb-1">
-                        <button class="btn text-white" data-bs-toggle="collapse" data-bs-target="#home-collapse">
-                            Pedidos
-                        </button>
-                        <div class="collapse" id="home-collapse">
-                            <ul class=" list-unstyled small">
-                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Verduleria</a></li>
-                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Carnes</a></li>
-                                <li><a href="./pedidos.html" class="text-decoration-none text-white">Almacen</a></li>
-                            </ul>
-                        </div>
+                        <div class="container">
+                            <a href="#"> <button type="button" class="btn btn-outline-dark div-pedidos text-white">
+                                    Agregar pedidos
+                                </button>
+                            </a>
                     </li>
                 </ul>
             </div>
         </div>
+        <div class="col-10">
+            <h2 class="margin-table-title">Pedidos</h2>
+
+            <div>
+                <div class="col-5 div-add">
+                    <input type="text" class="form-control" id="input-producto-nuevo" required placeholder="Producto">
+                    <input type="number" class="form-control" id="input-producto-cant" required placeholder="Cantidad">
+                    <input type="text" class="form-control" id="input-producto-medida" required
+                        placeholder="Kg/grms/unidad">
+                    <div class="div-add">
+                        <button id="btn-add" type="button" class="btn btn-success">
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+         
+            </div>
+
+            <div class="table-print">
+                <table id="my-table" class="table table-striped table-sm table-responsive">
+                    <thead>
+                        <thead>
+                            <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Medida</th>
+                            </tr>
+                        </thead>
+                    <tbody id="list-prod-pedidos">
+                    </tbody>
+                </table>
+            </div>
+            <div class="div-btns">
+                <button type="button" id="btn-print" class="btn btn-outline-success btn-lg">
+                    Imprimir lista
+                </button>
+                <button type="button" id="btn-delete-all" class="btn btn-outline-success btn-lg">
+                    Borrar lista completa
+                </button>
+        </div>
     </main>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="./javaScript/pedidos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>

@@ -1,6 +1,6 @@
-let sectorActual = "calentitos";
+let sectorActual = "frios";
 
-let listCalentitos = obtenerDatos("../JSON/calentitos.json", sectorActual);
+let listCalentitos = obtenerDatos("../JSON/frios.json", sectorActual);
 
 document.querySelector("#btn-add").addEventListener("click", addElement);
 
