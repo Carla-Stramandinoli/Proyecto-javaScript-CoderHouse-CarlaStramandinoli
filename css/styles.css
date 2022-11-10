@@ -72,7 +72,19 @@ input {
 }
 
 .table-responsive {
-  margin-top: 3%;
+  margin-top: 5%;
+}
+
+.margin-table-title {
+  font-size: 30px;
+}
+
+.font-size {
+  font-size: 15px;
+}
+
+.btn-secondary {
+  margin-top: 1%;
 }
 
 .enters,
@@ -92,13 +104,8 @@ input {
   margin-top: 2%;
 }
 
-.div-aceptar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+.div-add {
+  text-align: end;
   margin-top: 2%;
   font-family: "Courier New", Courier, monospace;
 }
@@ -107,10 +114,69 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
   font-family: "Courier New", Courier, monospace;
   margin-bottom: 1%;
+}
+
+#tooltip,
+#tooltip-out,
+#tooltip-date {
+  background: #333;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+#tooltip,
+#tooltip-out,
+#tooltip-date {
+  /* ... */
+  display: none;
+}
+
+#tooltip[data-show] {
+  display: block;
+}
+
+#tooltip-out[data-show] {
+  display: block;
+}
+
+#tooltip-date[data-show] {
+  display: block;
+}
+
+#arrow,
+#arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+}
+
+#arrow {
+  visibility: hidden;
+}
+
+#arrow::before {
+  visibility: visible;
+  content: '';
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.grey {
+  background-color: #e6e6e6;
+  cursor: not-allowed;
+}
+
+.stock {
+  cursor: not-allowed;
 }
 
 @media (min-width: 768px) {
