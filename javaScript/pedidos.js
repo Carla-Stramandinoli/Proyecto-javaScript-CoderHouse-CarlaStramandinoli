@@ -86,7 +86,7 @@ if (arrayPedidos != null && arrayPedidos.length > 0) {
 }
 
 //Btn agregar pedido
-let btnAdd = document.querySelector("#btn-add");
+let btnAdd = document.querySelector("#btn-add-pedido");
 btnAdd.addEventListener("click", agregarProdPedido);
 
 //Btn imprimir
